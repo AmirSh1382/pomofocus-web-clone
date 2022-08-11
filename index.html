@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BootStrap Icon CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+    <!-- BootStrap StyleSheet -->
+    <link rel="stylesheet" href="./Source/BootStrap/Css/bootstrap.min.css">
+    <!-- Main StyleSheet -->
+    <link rel="stylesheet" href="./Source/Css/style.css">
+    <title>Time for a break!</title>
+</head>
+<body>
+    <section id="audios">
+        <!-- alarm audio -->
+        <audio class="alarm-audio" src="./Source/Media/audio/alarn-sounds/alarm-Telepathy.mp3"></audio>
+        <!-- start btn audio -->
+        <audio class="start-audio" src="./Source/Media/audio/timer start or stop click sound/start-click.mp3"></audio>
+        <!-- stop btn audio -->
+        <audio class="stop-audio" src="./Source/Media/audio/timer start or stop click sound/stop-click.mp3"></audio>
+    </section>
+
+    <section class="setting-section px-4 px-md-0">
+        <div class="setting mx-auto pt-3">
+            <div class="setting-header d-flex justify-content-between align-items-center pb-3">
+                <span class="setting-title">Timer Setting</span>
+                <span class="btn btn-close"></span>
+            </div>
+
+            <div class="setting-body mt-3">
+                <h5>time (1-60 min)</h5>
+                <div class="timer-setting d-flex justify-content-between pb-3">
+                    <div class="pomodoro">
+                        <label class="form-label" for="pomodoro-time-input">Pomodoro</label>
+                        <input id="pomodoro-time-input" class="pomodoro-time-input form-control" type="text" value="25">
+                    </div>
+                    <div class="ShortBreak mx-4 mx-md-5">
+                        <label class="form-label" for="short-break-time-input">Short Break</label>
+                        <input id="short-break-time-input" class="short-break-time-input form-control" type="text" value="5">
+                    </div>
+                    <div class="LongBreak">
+                        <label class="form-label" for="long-break-time-input">Long Break</label>
+                        <input id="long-break-time-input" class="long-break-time-input form-control" type="text" value="15">
+                    </div>
+                </div>
+                <div class="alarm-setting d-flex justify-content-between align-items-center py-3">
+                    <h5>Alarm Sound</h5>
+                    <select class="alarm-sounds-select-menu form-select">
+                        <option class="alarm-sound" value="./Source/Media/audio/alarn-sounds/alarm-Crystal.mp3">Crystal</option>
+                        <option class="alarm-sound" value="./Source/Media/audio/alarn-sounds/alarm-Deep Thought.wav">Deep Thought</option>
+                        <option class="alarm-sound" value="./Source/Media/audio/alarn-sounds/alarm-Ding.mp3">Ding</option>
+                        <option class="alarm-sound" value="./Source/Media/audio/alarn-sounds/Alarm-Idea.wav">Idea</option>
+                        <option class="alarm-sound" value="./Source/Media/audio/alarn-sounds/alarm-Rock.mp3">Rock</option>
+                        <option class="alarm-sound" value="./Source/Media/audio/alarn-sounds/alarm-Telepathy.mp3">Telepathy</option>
+                    </select>
+                </div>
+                <div class="dark-mode-setting d-flex justify-content-between align-items-center py-3">
+                    <h5>Dark Mode when running</h5>
+                    <div class="switch d-flex align-items-center">
+                        <span class="ball"></span>
+                    </div>
+                </div>
+                <button class="setting-ok-btn btn btn-dark d-flex px-4 ms-auto mt-3">OK</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="loader">
+        <div class="loader-title d-flex justify-content-center align-items-center pb-5">
+            <i class="bi bi-check-circle-fill fs-5"></i>
+            PomoFocus
+        </div>
+    </section>
+
+    <section id="web-timer-section">
+        <div class="timer-container container">
+            <div class="row">
+                <div class="timer-header-container col-11 m-auto">
+                    <div class="timer-header d-flex align-items-center justify-content-between py-1">
+                        <div class="logo dark-theme d-flex">
+                            <i class="bi bi-check-circle-fill me-1 fs-5"></i>
+                            <h4 class="m-auto">PomoFocus</h4>
+                        </div>
+                        <ul class="navbar mb-0">
+                            <li class="navbar-item ms-2" title="report"><button><i class="bi bi-bar-chart-fill pe-sm-1"></i><span class="navabar-item-text d-none d-sm-inline">Report</span></button></li>
+                            <li class="setting-btn navbar-item ms-2" title="setting"><button><i class="bi bi-gear pe-sm-1"></i><span class="navabar-item-text d-none d-sm-inline">Setting</span></button></li>
+                            <li class="navbar-item ms-2" title="login"><button><i class="bi bi-person-circle pe-sm-1"></i><span class="navabar-item-text d-none d-sm-inline">Login</span></button></li>
+                        </ul>
+                    </div>
+
+                    <div class="timer-time-line-container mt-1">
+                        <div class="time-line"></div>
+                    </div>
+                </div>
+                <div class="timer-body-container col-11 m-auto mt-5">
+                    <div class="timer-body m-auto text-center">
+                        <ul class="timer-type dark-theme d-flex justify-content-center pt-3 ps-0 mb-0">
+                            <li><button class="Pomodoro timer-type-btn active">Pomodoro</li></button>
+                            <li><button class="Short-braek timer-type-btn mx-2">Short Braek</li></button>
+                            <li><button class="Long-break timer-type-btn">Long Break</li></button>
+                        </ul>
+
+                        <div class="timer"></div>
+
+                        <button class="timer-start-btn">Start</button>
+                        <button class="timer-stop-btn">Stop</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="web-tasks-section">
+        <div class="container my-4">
+            <div class="row">
+                <div class="tasks-header-container col-11 m-auto">
+                    <div class="tasks-count text-center">#0</div>
+                    <div class="focused-task-name text-center">Time to focus!</div>
+                    <div class="tasks-header mt-1 mb-3 pb-3">
+                        <div class="task-title dark-theme">Tasks</div>
+
+                        <i class="tasks-options-btn bi bi-three-dots-vertical dark-theme"></i>
+
+                        <div class="tasks-options">
+                            <ul class="options-container shadow">
+                                <li class="clear-finished-tasks-btn option"><i class="bi bi-check2-circle me-1"></i> Clear finished tasks</li>
+                                <li class="check-all-tasks option"><i class="bi bi-check-all me-1"></i> Check all tasks</li>
+                                <li class="clear-all-tasks option"><i class="bi bi-trash me-1"></i> Clear all tasks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="tasks-body-container dark-theme dark-theme col-11 m-auto">
+                    <div class="tasks-container mb-3">
+
+                        <!-- task EX:
+                        <div class="task-container task-focused mb-2">
+                            <div class="task-info d-flex align-items-center">
+                                <i class="task-finished-btn bi bi-check-circle-fill ms-1 me-2"></i>
+                                <span class="task-msg">task massage</span>
+                                <span class="task-time ms-auto">time min</span>
+                                <i class="task-edit-btn bi bi-pencil-square ms-3"></i>
+                            </div>
+                            <div class="task-note shadow mt-2 ms-3 px-2">This is a task-note</div>
+                        </div> -->
+                        
+                    </div>
+
+                    <form class="task-form mb-3">
+                        <input class="task-title-input form-control my-4 ps-3" type="text" placeholder="What are you working on?" maxlength="20">
+
+                        <h6 class="task-time-title ms-3">Task time: (optional)</h6>
+
+                        <div class="task-time-input d-flex justify-content-start align-items-center ms-3 my-3">
+                            <input class="form-time-input form-control" type="number" placeholder="min" min="0" max="60" maxlength="2">
+                        </div>
+
+                        <h6 class="add-note-btn text-decoration-none ms-3 mt-1 mb-3">+ add note</h6>
+
+                        <div class="note-container mx-3 mb-3">
+                            <label class="form-label" for="task-note">Task note:</label>
+                            <textarea id="task-note" class="form-note-input form-control" cols="30" rows="2"></textarea>
+                        </div>
+
+                        <div class="submit-btns-container d-flex justify-content-end py-2">
+                            <button class="form-delete-btn btn btn-danger me-auto ms-2">Delete</button>
+                            <button class="form-cancel-btn btn btn-outline-secondary me-2">cancel</button>
+                            <button class="form-submit-btn btn btn-primary me-3">save</button>
+                        </div>
+                    </form>
+
+                    <button class="add-task-btn mb-4"><i class="bi bi-plus me-1"></i>Add Task</button>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="tasks-footer-container dark-theme col-11 m-auto mb-4">
+                    <div class="tasks-footer d-flex justify-content-between align-items-center p-2 px-3">
+                        <div class="status-info">
+                            <div>Tasks <span class="all-tasks-count">0</span></div>
+                            <div class="mt-2">Finished <span class="finished-tasks-count">0</span></div>
+                        </div>
+                        <div class="current-time">Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BootStrap Script -->
+    <script src="./Source/BootStrap/Js/bootstrap.bundle.js"></script>
+    <!-- Setting Script-->
+    <script src="./Source/Js/settingScript.js"></script>
+    <!-- Timer Script -->
+    <script src="./Source/Js/timerScript.js"></script>
+    <!-- Tasks Script -->
+    <script src="./Source/Js/tasksScript.js"></script>
+</body>
+</html> 
